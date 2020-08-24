@@ -35,12 +35,12 @@
 
 <style lang="sass" scoped>
 .notfound
-    background-image: url('../assets/background/404.jpg')
+    background-image: url('https://firebasestorage.googleapis.com/v0/b/fir-api-f6968.appspot.com/o/404.jpg?alt=media&token=08b47add-7d60-484e-88ec-8be9a01ef84d')
     width: 100%
 .container-fluid
     padding: 0
 .page-header
-    background-image: url('../assets/background/page-header.png')
+    background-image: url('https://firebasestorage.googleapis.com/v0/b/fir-api-f6968.appspot.com/o/page-header.png?alt=media&token=d0a554f6-fc2a-43fb-a390-e36cb2eaba81')
     padding: 45px 0 45px 0px
     h1
         font-weight: bold

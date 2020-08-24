@@ -71,7 +71,10 @@
               </div>
               <div class="col-12 col-md-6">
                 <div class="about__images">
-                  <img src="../assets/abouts-detail.jpg" alt />
+                  <img
+                    src="https://firebasestorage.googleapis.com/v0/b/fir-api-f6968.appspot.com/o/abouts-detail.jpg?alt=media&token=438b906d-48e0-4f5b-a8d7-77c69ffa5c2d"
+                    alt=""
+                  />
                 </div>
               </div>
             </div>
@@ -83,10 +86,10 @@
           <div class="container">
             <div class="media-main">
               <div class="row">
-                <div class="col-12 col-md-6 media-col">
-                  <div class="media">
+                <div class="col-12 col-md-6 media">
+                  <div class="media-left">
                     <img
-                      src="../assets/user-profile.png"
+                      src="https://firebasestorage.googleapis.com/v0/b/fir-api-f6968.appspot.com/o/user-profile.png?alt=media&token=0fa5fdb2-eb44-4014-ba0c-dbf9594317d7"
                       alt="profile"
                       class="rounded-circle"
                       style="width:100px"
@@ -106,10 +109,10 @@
                     </p>
                   </div>
                 </div>
-                <div class="col-12 col-md-6 media-col">
-                  <div class="media">
+                <div class="col-12 col-md-6 media">
+                  <div class="media-left">
                     <img
-                      src="../assets/user-profile.png"
+                      src="https://firebasestorage.googleapis.com/v0/b/fir-api-f6968.appspot.com/o/user-profile.png?alt=media&token=0fa5fdb2-eb44-4014-ba0c-dbf9594317d7"
                       alt="profile"
                       class="rounded-circle"
                       style="width:100px"
@@ -163,21 +166,18 @@ section
     &__profile
 
       .media
-        &-col
-          display: flex
-          align-items: flex-start
-          padding: 30px 0
-          &-body
-            margin-left: 20px
-            small
-              font-size: 80%
-              font-weight: bold
-              color: #7488a1
+        padding: 30px 0
+        &-body
+          margin-left: 20px
+          small
+            font-size: 80%
+            font-weight: bold
+            color: #7488a1
 
 .container-fluid
   padding: 0
 .page-header
-  background-image: url('../assets/background/page-header.png')
+  background-image: url('https://firebasestorage.googleapis.com/v0/b/fir-api-f6968.appspot.com/o/page-header.png?alt=media&token=d0a554f6-fc2a-43fb-a390-e36cb2eaba81')
   padding: 45px 0 45px 0px
   h1
     font-weight: bold

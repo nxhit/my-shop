@@ -134,7 +134,7 @@
 .container-fluid
     padding: 0
 .page-header
-    background-image: url('../assets/background/page-header.png')
+    background-image: url('/src/assets/background/page-header.png')
     padding: 45px 0 45px 0px
     h1
         font-weight: bold

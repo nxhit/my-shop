@@ -5,49 +5,104 @@
         >&times;</a
       >
       <div class="overlay__content">
-        <div class="logout-main">
-          <div class="welcom">Welcome&nbsp;Guest!</div>
-        </div>
-
         <nav class="menu">
-          <li>
-            <a
-              href="#homepage"
-              class="menu__item btn"
-              role="button"
-              aria-expanded="false"
-              aria-controls="collapseExample"
-            ></a>
-          </li>
-          <li>
-            <a
-              href="#shoppages"
-              class="menu__item btn collapse"
-              data-toggle="collapse"
-            ></a>
-          </li>
-          <div id="shoppages" class="collapse sub-menu">
-            <ul class="sub-menu__list">
-              <li class="sub-menu__item">
-                <a href="#" class="menu__item btn">Shop 1</a>
-              </li>
-              <li class="sub-menu__item">
-                <a href="#" class="menu__item btn">Shop 2</a>
-              </li>
-            </ul>
+          <div class="logout-main">
+            <div class="welcom">Welcome&nbsp;Guest!</div>
           </div>
-          <li>
-            <a href="#homepage" class="menu__item btn collapse"></a>
-          </li>
-          <li>
-            <a href="#homepage" class="menu__item btn collapse"></a>
-          </li>
+          <div>
+            <div id="accordion">
+              <div class="card">
+                <div class="card-header">
+                  <a href="/home">Home</a>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header">
+                  <a
+                    class="card-link"
+                    data-toggle="collapse"
+                    href="#collapseOne"
+                  >
+                    <span>Shop</span> <i class="fas fa-angle-down"></i>
+                  </a>
+                </div>
+                <div
+                  id="collapseOne"
+                  class="collapse show"
+                  data-parent="#accordion"
+                >
+                  <div class="card-body"><a href="#">Shop 1</a></div>
+                  <div class="card-body"><a href="#">Shop 2</a></div>
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="card-header">
+                  <a
+                    class="collapsed card-link"
+                    data-toggle="collapse"
+                    href="#collapseTwo"
+                  >
+                    Pages <i class="fas fa-angle-down"></i>
+                  </a>
+                </div>
+                <div id="collapseTwo" class="collapse" data-parent="#accordion">
+                  <div class="card-body">
+                    <a href="/about">About</a>
+                  </div>
+                  <div class="card-body">
+                    <a href="/contact">Contact</a>
+                  </div>
+                  <div class="card-body">
+                    <a href="/notfound">404</a>
+                  </div>
+                  <div class="card-body">
+                    <a href="/login">Login</a>
+                  </div>
+                  <div class="card-body">
+                    <a href="/signup">Signup</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="card-header">
+                  <a
+                    class="collapsed card-link"
+                    data-toggle="collapse"
+                    href="#collapseThree"
+                  >
+                    Cart <i class="fas fa-angle-down"></i>
+                  </a>
+                </div>
+                <div
+                  id="collapseThree"
+                  class="collapse"
+                  data-parent="#accordion"
+                >
+                  <div class="card-body">
+                    <a href="/cart">View cart</a>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header">
+                  <a href="/login">Logout</a>
+                </div>
+              </div>
+            </div>
+          </div>
         </nav>
       </div>
     </div>
     <span v-on:click="openNav">
       <i class="fas fa-bars" style="font-size:27px"></i>
     </span>
+    <div class="logo">
+      <router-link class="logo__link" to="/home">
+        <span class="logo__text">NXH</span>SHOP
+      </router-link>
+    </div>
   </header>
 </template>
 
@@ -107,6 +162,15 @@ export default {
         transition: 0.3s
         text-transform: uppercase
         border: none
+a
+  color: #131313
+  font-weight: bold
+  &:hover
+    text-decoration: none
+    color: #fe4536
+.card
+  background-color: #f5f5f5
+
 @media screen and (max-height: 450px)
     .overlay
         a

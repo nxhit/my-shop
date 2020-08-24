@@ -6,12 +6,21 @@ import Signup from "../pages/signup";
 import Contact from "../pages/contact";
 import About from "../pages/about";
 import Notfound from "../pages/notfound";
+import Checkout from "../pages/checkout";
+import Cart from "../pages/cart";
+import Product from "../pages/products";
+import Detail from "../pages/details";
 
 Vue.use(VueRouter);
 
 const routes = [
   {
     path: "/",
+    name: "Home",
+    component: Home
+  },
+  {
+    path: "/home",
     name: "Home",
     component: Home
   },
@@ -39,6 +48,26 @@ const routes = [
     path: "/contact",
     name: "Contact",
     component: Contact
+  },
+  {
+    path: "/checkout",
+    name: "Checkout",
+    component: Checkout
+  },
+  {
+    path: "/cart",
+    name: "Cart",
+    component: Cart
+  },
+  {
+    path: "/product",
+    name: "Product",
+    component: Product
+  },
+  {
+    path: "/detail",
+    name: "Detail",
+    component: Detail
   }
 ];
 

@@ -18,24 +18,12 @@
                   >Shop<i class="fa fa-angle-down" aria-hidden="true"></i
                 ></a>
                 <ul class="sub sub__shop">
-                  <li><a href="/*">404 Page</a></li>
-                  <li><a href="/about">About</a></li>
-                  <li><a href="/contact">contact</a></li>
-                  <li><a href="/login">Login</a></li>
-                  <li><a href="/signup">SignUp</a></li>
+                  <li><a href="/*">shop 1</a></li>
+                  <li><a href="/about">Shop 2</a></li>
                 </ul>
               </li>
               <li class="header__menu-item">
-                <a class="header__link" href="#"
-                  >Product<i class="fa fa-angle-down" aria-hidden="true"></i
-                ></a>
-                <ul class="sub sub__product">
-                  <li><a href="/*">404 Page</a></li>
-                  <li><a href="/about">About</a></li>
-                  <li><a href="/contact">contact</a></li>
-                  <li><a href="/login">Login</a></li>
-                  <li><a href="/signup">SignUp</a></li>
-                </ul>
+                <a class="header__link" href="/product">Products</a>
               </li>
               <li class="header__menu-item">
                 <a class="header__link" href="#"
@@ -47,6 +35,7 @@
                   <li><a href="/contact">contact</a></li>
                   <li><a href="/login">Login</a></li>
                   <li><a href="/signup">SignUp</a></li>
+                  <li><a href="/detail">Detail</a></li>
                 </ul>
               </li>
             </ul>
@@ -101,12 +90,10 @@
                     </span>
                   </li>
                   <li>
-                    <a
-                      class="btn btn-secondary btn-link btn-block"
-                      href="cart-page1.html"
+                    <a class="btn btn-secondary btn-link btn-block" href="/cart"
                       >View Cart</a
                     >
-                    <a class="btn btn-danger btn-block" href="checkout.html"
+                    <a class="btn btn-danger btn-block" href="/checkout"
                       >Checkout</a
                     >
                   </li>

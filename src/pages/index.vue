@@ -3,35 +3,101 @@
     <div class="main">
       <!-- Revolution Layer Slider -->
       <div class="carousel">
-        <b-carousel
-          id="carousel-fade"
-          style="text-shadow: 0px 0px 2px #000"
-          fade
-          indicators
-          img-width="1024"
-          img-height="480"
-        >
-          <b-carousel-slide
-            caption="1/3"
-            img-src="https://cdn.cellphones.com.vn/media/ltsoft/promotion/K_ni_m_10_n_m_Xiaomibr_u_i_gi_m_gi_.png"
-          >
-          </b-carousel-slide>
-          <b-carousel-slide
-            caption="2/3"
-            img-src="https://cdn.cellphones.com.vn/media/ltsoft/promotion/iphone_8_plus_14.8.2020.pngv1.png"
-          >
-          </b-carousel-slide>
-          <b-carousel-slide
-            caption="3/3"
-            img-src="https://cdn.cellphones.com.vn/media/ltsoft/promotion/tab_s6_1.8.2020.jpg"
-          >
-          </b-carousel-slide>
-        </b-carousel>
+        <VueSlickCarousel :arrows="true" :dots="true" :autoplay="true">
+          <div>
+            <img
+              src="https://cdn.cellphones.com.vn/media/ltsoft/promotion/tab_s6_1.8.2020.jpg"
+              alt=""
+              width="100%"
+            />
+          </div>
+          <div>
+            <img
+              src="https://cdn.cellphones.com.vn/media/ltsoft/promotion/K_ni_m_10_n_m_Xiaomibr_u_i_gi_m_gi_.png"
+              alt=""
+              width="100%"
+            />
+          </div>
+          <div>
+            <img
+              src="https://cdn.cellphones.com.vn/media/ltsoft/promotion/iphone_8_plus_14.8.2020.pngv1.png"
+              alt=""
+              width="100%"
+            />
+          </div>
+          <div>
+            <img
+              src="https://cdn.tgdd.vn/2020/08/banner/800-300-800x300-30.png"
+              alt=""
+              width="100%"
+            />
+          </div>
+        </VueSlickCarousel>
       </div>
 
-      <section class="banner flash-sale__content">
+      <section class="banner flash-sale">
         <div class="container-fluid">
-          <app-carousel></app-carousel>
+          <div class="container flash-sale__content" align="center">
+            <h3 class="title">OUR CATEGORIES</h3>
+            <p>Lorem ipsum dolor sit amet consectetur</p>
+          </div>
+          <carousel>
+            <div>
+              <article>
+                <img
+                  src="https://cdn.cellphones.com.vn/media/catalog/product/cache/7/image/9df78eab33525d08d6e5fb8d27136e95/m/i/mint_final.jpg"
+                  alt=""
+                />
+                <div class="title">
+                  <h3 align="center">Samsung</h3>
+                </div>
+              </article>
+            </div>
+            <div>
+              <article>
+                <img
+                  src="https://cdn.cellphones.com.vn/media/catalog/product/cache/7/image/9df78eab33525d08d6e5fb8d27136e95/i/p/iphone11-purple-select-2019.png"
+                  alt=""
+                />
+                <div class="title">
+                  <h3 align="center">Iphone</h3>
+                </div>
+              </article>
+            </div>
+            <div>
+              <article>
+                <img
+                  src="https://cdn.cellphones.com.vn/media/catalog/product/cache/7/small_image/350x/9df78eab33525d08d6e5fb8d27136e95/a/s/asus-rog-phone3-1-recovered-recovered.jpg"
+                  alt=""
+                />
+                <div class="title">
+                  <h3 align="center">Xiaomi</h3>
+                </div>
+              </article>
+            </div>
+            <div>
+              <article>
+                <img
+                  src="https://cdn.cellphones.com.vn/media/catalog/product/cache/7/image/9df78eab33525d08d6e5fb8d27136e95/c/o/combo_-_reno4_-_blue_-_jpeg.jpg"
+                  alt=""
+                />
+                <div class="title">
+                  <h3 align="center">Oppo</h3>
+                </div>
+              </article>
+            </div>
+            <div>
+              <article>
+                <img
+                  src="https://cdn.cellphones.com.vn/media/catalog/product/cache/7/image/9df78eab33525d08d6e5fb8d27136e95/m/i/mint_final.jpg"
+                  alt=""
+                />
+                <div class="title">
+                  <h3 align="center">Samsung</h3>
+                </div>
+              </article>
+            </div>
+          </carousel>
         </div>
       </section>
 
@@ -57,35 +123,46 @@
           </div>
         </div>
       </section>
+      <section class="product__content">
+        <div class="container">
+          <div class="row"></div>
+        </div>
+      </section>
     </div>
   </div>
 </template>
 
 <script>
+import carousel from "vue-owl-carousel";
+import VueSlickCarousel from "vue-slick-carousel";
+import "vue-slick-carousel/dist/vue-slick-carousel.css";
+// optional style for arrows & dots
+import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
 export default {
   methods: {},
 
   name: "home",
   data() {
     return {
-      slide1: [
+      items: [
         {
           id: 1,
-          url: "../assets/slide/1.jpg",
-          caption: "bala"
+          name: "samsung",
+          url: "",
+          price: 3000
         },
         {
-          id: 2,
-          url: "../assets/slide/1.jpg",
-          caption: "bala"
-        },
-        {
-          id: 3,
-          url: "../assets/slide/1.jpg",
-          caption: "bala"
+          id: 1,
+          name: "iphone",
+          url: "",
+          price: 3000
         }
       ]
     };
+  },
+  components: {
+    VueSlickCarousel,
+    carousel
   }
 };
 </script>
@@ -104,10 +181,22 @@ section
 // Kết thúc slide top
 
 // Bắt đầu flash sale
-
+.flash-sale
+  margin-top: 100px
+  margin-bottom: 100px
+  h3
+    font-family: "Poppins-Bold", sans-serif
+    color: #fe4536
+    margin-bottom: 0
+    line-height: 1.5
+    font-weight: bold
+.owl-nav
+  display: none
 // Kết thúc flash sale
 
-
+article
+  background-color: #f5f5f5
+  padding: 0 1rem
 .banner
     // Bắt đầu special-offers
     &__parallax
@@ -183,9 +272,9 @@ section
 // Kết thúc special-offers
 
 // Bắt đầu flash sale
-// Kết thúc slide top
 
 // Bắt đầu flash sale
+// Kết thúc slide top
 // Kết thúc slide top
 
 // Bắt đầu flash sale

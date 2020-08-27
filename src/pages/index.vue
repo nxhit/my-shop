@@ -4,33 +4,8 @@
       <!-- Revolution Layer Slider -->
       <div class="carousel">
         <VueSlickCarousel :arrows="true" :dots="true" :autoplay="true">
-          <div>
-            <img
-              src="https://cdn.cellphones.com.vn/media/ltsoft/promotion/tab_s6_1.8.2020.jpg"
-              alt=""
-              width="100%"
-            />
-          </div>
-          <div>
-            <img
-              src="https://cdn.cellphones.com.vn/media/ltsoft/promotion/K_ni_m_10_n_m_Xiaomibr_u_i_gi_m_gi_.png"
-              alt=""
-              width="100%"
-            />
-          </div>
-          <div>
-            <img
-              src="https://cdn.cellphones.com.vn/media/ltsoft/promotion/iphone_8_plus_14.8.2020.pngv1.png"
-              alt=""
-              width="100%"
-            />
-          </div>
-          <div>
-            <img
-              src="https://cdn.tgdd.vn/2020/08/banner/800-300-800x300-30.png"
-              alt=""
-              width="100%"
-            />
+          <div v-for="b in banners" :key="b.id">
+            <img :src="b.url" alt="" width="100%" />
           </div>
         </VueSlickCarousel>
       </div>
@@ -42,62 +17,51 @@
             <p>Lorem ipsum dolor sit amet consectetur</p>
           </div>
           <carousel>
-            <div>
-              <article>
-                <img
-                  src="https://cdn.cellphones.com.vn/media/catalog/product/cache/7/image/9df78eab33525d08d6e5fb8d27136e95/m/i/mint_final.jpg"
-                  alt=""
-                />
-                <div class="title">
-                  <h3 align="center">Samsung</h3>
+            <div class="item-card" v-for="item in items" :key="item.id">
+              <b-card>
+                <img :src="item.url" alt="" class="image" />
+                <div class="middle">
+                  <b-button
+                    class="detail"
+                    data-toggle="modal"
+                    data-target="quickViewModal"
+                    @click="modaldetail()"
+                    ><i class="fa fa-eye" aria-hidden="true"></i
+                  ></b-button>
                 </div>
-              </article>
-            </div>
-            <div>
-              <article>
-                <img
-                  src="https://cdn.cellphones.com.vn/media/catalog/product/cache/7/image/9df78eab33525d08d6e5fb8d27136e95/i/p/iphone11-purple-select-2019.png"
-                  alt=""
-                />
-                <div class="title">
-                  <h3 align="center">Iphone</h3>
-                </div>
-              </article>
-            </div>
-            <div>
-              <article>
-                <img
-                  src="https://cdn.cellphones.com.vn/media/catalog/product/cache/7/small_image/350x/9df78eab33525d08d6e5fb8d27136e95/a/s/asus-rog-phone3-1-recovered-recovered.jpg"
-                  alt=""
-                />
-                <div class="title">
-                  <h3 align="center">Xiaomi</h3>
-                </div>
-              </article>
-            </div>
-            <div>
-              <article>
-                <img
-                  src="https://cdn.cellphones.com.vn/media/catalog/product/cache/7/image/9df78eab33525d08d6e5fb8d27136e95/c/o/combo_-_reno4_-_blue_-_jpeg.jpg"
-                  alt=""
-                />
-                <div class="title">
-                  <h3 align="center">Oppo</h3>
-                </div>
-              </article>
-            </div>
-            <div>
-              <article>
-                <img
-                  src="https://cdn.cellphones.com.vn/media/catalog/product/cache/7/image/9df78eab33525d08d6e5fb8d27136e95/m/i/mint_final.jpg"
-                  alt=""
-                />
-                <div class="title">
-                  <h3 align="center">Samsung</h3>
-                </div>
-              </article>
+                <b-card-text>
+                  <!-- <router-link
+                    :to="{ name: '{{item.name}}', params: { id: 1 } }"
+                    >{{ item.name }}</router-link
+                  > -->
+                  <h4>
+                    <a href="/detail/1">{{ item.name }}</a>
+                  </h4>
+                  <p>${{ item.price }}</p>
+                </b-card-text>
+
+                <b-button @click="addtoCart()" href="#" variant="primary"
+                  >Add to cart</b-button
+                >
+              </b-card>
             </div>
           </carousel>
+          <div
+            class="modal"
+            id="quickViewModal"
+            tabindex="-1"
+            role="dialog"
+            style="display:none"
+            aria-hidden="true"
+          >
+            <div class="modal__content" role="document">
+              <div class="modal-body">
+                <div class="container">
+                  <!-- tt chi tiết modal -->
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -117,15 +81,53 @@
               Atque maiores vero velit impedit odio quia aliquam quos officiis
               quod.
             </p>
-            <button class="btn btn--danger">
+            <button class="btn btn--danger" @click="muangay()">
               Mua ngay
             </button>
           </div>
         </div>
       </section>
+
       <section class="product__content">
         <div class="container">
-          <div class="row"></div>
+          <div class="row">
+            <div class="col-4" v-for="item in items" :key="item.id">
+              <b-card>
+                <img :src="item.url" alt="" class="image" />
+                <div class="middle">
+                  <b-button
+                    class="detail"
+                    data-toggle="modal"
+                    data-target="quickViewModal"
+                    @click="modaldetail()"
+                    ><i class="fa fa-eye" aria-hidden="true"></i
+                  ></b-button>
+                </div>
+                <b-card-text>
+                  <!-- <router-link
+                    :to="{ name: '{{item.name}}', params: { id: 1 } }"
+                    >{{ item.name }}</router-link
+                  > -->
+                  <p>${{ item.price }}</p>
+                </b-card-text>
+
+                <b-button @click="addtoCart()" href="#" variant="primary"
+                  >Add to cart</b-button
+                >
+              </b-card>
+            </div>
+          </div>
+          <paginate
+            :page-count="20"
+            :page-range="3"
+            :margin-pages="2"
+            :click-handler="clickCallback"
+            :prev-text="'Prev'"
+            :next-text="'Next'"
+            :container-class="'pagination'"
+            :page-class="'page-item'"
+          >
+          </paginate>
         </div>
       </section>
     </div>
@@ -139,23 +141,117 @@ import "vue-slick-carousel/dist/vue-slick-carousel.css";
 // optional style for arrows & dots
 import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
 export default {
-  methods: {},
+  props: ["id"],
+  methods: {
+    addtoCart() {
+      this.$toasted.show("Thêm thành công");
+    },
+    muangay() {
+      alert("Sản phẩm đã cháy hàng");
+    },
+    modaldetail() {},
+    clickCallback(pageNum) {
+      console.log(pageNum);
+    }
+  },
 
   name: "home",
   data() {
     return {
+      banners: [
+        {
+          id: 1,
+          url:
+            "https://cdn.cellphones.com.vn/media/ltsoft/promotion/tab_s6_1.8.2020.jpg"
+        },
+        {
+          id: 2,
+          url:
+            "https://cdn.cellphones.com.vn/media/ltsoft/promotion/tab_s6_1.8.2020.jpg"
+        },
+        {
+          id: 3,
+          url:
+            "https://cdn.cellphones.com.vn/media/ltsoft/promotion/tab_s6_1.8.2020.jpg"
+        }
+      ],
       items: [
         {
           id: 1,
-          name: "samsung",
-          url: "",
+          name: "Samsung",
+          url:
+            "https://cdn.cellphones.com.vn/media/catalog/product/cache/7/image/9df78eab33525d08d6e5fb8d27136e95/m/i/mint_final.jpg",
+          price: 2000
+        },
+        {
+          id: 2,
+          name: "iPhone",
+          url:
+            "https://cdn.cellphones.com.vn/media/catalog/product/cache/7/image/9df78eab33525d08d6e5fb8d27136e95/i/p/iphone11-purple-select-2019.png",
           price: 3000
         },
         {
-          id: 1,
-          name: "iphone",
-          url: "",
-          price: 3000
+          id: 3,
+          name: "Xiaomi",
+          url:
+            "https://cdn.cellphones.com.vn/media/catalog/product/cache/7/small_image/350x/9df78eab33525d08d6e5fb8d27136e95/a/s/asus-rog-phone3-1-recovered-recovered.jpg",
+          price: 1000
+        },
+        {
+          id: 4,
+          name: "Vsmart",
+          url:
+            "https://cdn.cellphones.com.vn/media/catalog/product/cache/7/image/9df78eab33525d08d6e5fb8d27136e95/v/s/vsmart-active-3_2_.png",
+          price: 950
+        },
+        {
+          id: 5,
+          name: "Oppo",
+          url:
+            "https://cdn.cellphones.com.vn/media/catalog/product/cache/7/image/9df78eab33525d08d6e5fb8d27136e95/c/o/combo_-_reno4_-_blue_-_jpeg.jpg",
+          price: 950
+        },
+        {
+          id: 6,
+          name: "Huawei",
+          url:
+            "https://cdn.cellphones.com.vn/media/catalog/product/cache/7/image/9df78eab33525d08d6e5fb8d27136e95/p/4/p40_pro_0000_layer_2.jpg",
+          price: 950
+        },
+        {
+          id: 7,
+          name: "Huawei",
+          url:
+            "https://cdn.cellphones.com.vn/media/catalog/product/cache/7/image/9df78eab33525d08d6e5fb8d27136e95/p/4/p40_pro_0000_layer_2.jpg",
+          price: 950
+        },
+        {
+          id: 8,
+          name: "Huawei",
+          url:
+            "https://cdn.cellphones.com.vn/media/catalog/product/cache/7/image/9df78eab33525d08d6e5fb8d27136e95/p/4/p40_pro_0000_layer_2.jpg",
+          price: 950
+        },
+        {
+          id: 9,
+          name: "Huawei",
+          url:
+            "https://cdn.cellphones.com.vn/media/catalog/product/cache/7/image/9df78eab33525d08d6e5fb8d27136e95/p/4/p40_pro_0000_layer_2.jpg",
+          price: 950
+        },
+        {
+          id: 10,
+          name: "Huawei",
+          url:
+            "https://cdn.cellphones.com.vn/media/catalog/product/cache/7/image/9df78eab33525d08d6e5fb8d27136e95/p/4/p40_pro_0000_layer_2.jpg",
+          price: 950
+        },
+        {
+          id: 11,
+          name: "Huawei",
+          url:
+            "https://cdn.cellphones.com.vn/media/catalog/product/cache/7/image/9df78eab33525d08d6e5fb8d27136e95/p/4/p40_pro_0000_layer_2.jpg",
+          price: 950
         }
       ]
     };
@@ -170,7 +266,7 @@ export default {
 <style lang="sass">
 
 .main
-    height: 2000px
+    height: auto
     margin-right: auto
     margin-left: auto
 section
@@ -272,7 +368,81 @@ article
 // Kết thúc special-offers
 
 // Bắt đầu flash sale
+.item-card
+  text-align: center
+  padding: 2rem
+  h4
+    font-size: 28px
+    color: #131313
+  p
+    color: #fe4536
+    font-weight: bold
+  .detail
+    background-color: #f5f5f5
+    color: #131313
+    border: none
+    border-radius: 50%
+    &:hover
+      background-color: #6c757d
+      color: #fff
 
+  &:hover
+    .middle
+      opacity: 1
+  .middle
+    transition: .5s ease
+    opacity: 0
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+    -ms-transform: translate(-50%, -50%)
+    text-align: center
+  .image
+    opacity: 1
+    display: block
+    width: 100%
+    height: auto
+    transition: .5s ease
+    backface-visibility: hidden
+
+.product__content
+  text-align: center
+  padding: 2rem
+  h4
+    font-size: 28px
+    color: #131313
+  p
+    color: #fe4536
+    font-weight: bold
+  .detail
+    background-color: #f5f5f5
+    color: #131313
+    border: none
+    border-radius: 50%
+    &:hover
+      background-color: #6c757d
+      color: #fff
+
+  &:hover
+    .middle
+      opacity: 1
+  .middle
+    transition: .5s ease
+    opacity: 0
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+    -ms-transform: translate(-50%, -50%)
+    text-align: center
+  .image
+    opacity: 1
+    display: block
+    width: 100%
+    height: auto
+    transition: .5s ease
+    backface-visibility: hidden
 // Bắt đầu flash sale
 // Kết thúc slide top
 // Kết thúc slide top

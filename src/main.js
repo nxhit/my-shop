@@ -4,6 +4,14 @@ import router from "./router";
 import store from "./store";
 import ScrollFixedHeader from "vuejs-scroll-fixed-header";
 import { BootstrapVue, IconsPlugin } from "bootstrap-vue";
+import Toasted from "vue-toasted";
+import Paginate from "vuejs-paginate";
+Vue.component("paginate", Paginate);
+
+Vue.config.productionTip = false;
+Vue.use(Toasted, {
+  duration: 1000
+});
 
 Vue.config.productionTip = false;
 Vue.use(ScrollFixedHeader);

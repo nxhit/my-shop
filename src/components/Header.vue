@@ -35,7 +35,7 @@
                   <li><a href="/contact">contact</a></li>
                   <li><a href="/login">Login</a></li>
                   <li><a href="/signup">SignUp</a></li>
-                  <li><a href="/detail">Detail</a></li>
+                  <li><a href="/detail/1">Detail</a></li>
                 </ul>
               </li>
             </ul>

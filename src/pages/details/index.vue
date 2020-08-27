@@ -62,6 +62,17 @@
   </div>
 </template>
 
+<script>
+export default {
+  data() {
+    return {
+      id: this.$route.params.id
+    };
+  },
+  computed: {}
+};
+</script>
+
 <style lang="sass" scoped>
 .container-fluid
     padding: 0

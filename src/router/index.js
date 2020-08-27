@@ -10,6 +10,7 @@ import Checkout from "../pages/checkout";
 import Cart from "../pages/cart";
 import Product from "../pages/products";
 import Detail from "../pages/details";
+import Test from "../pages/test";
 
 Vue.use(VueRouter);
 
@@ -65,7 +66,12 @@ const routes = [
     component: Product
   },
   {
-    path: "/detail",
+    path: "/test",
+    name: "Test",
+    component: Test
+  },
+  {
+    path: "/detail/:Id",
     name: "Detail",
     component: Detail
   }

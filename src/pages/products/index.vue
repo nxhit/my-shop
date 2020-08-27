@@ -18,9 +18,71 @@
         </div>
       </nav>
     </div>
-    <section class="product__content"></section>
+    <section class="product__content">
+      <div class="container">
+        <div class="row">
+          <div class="col-4" v-for="item in items" :key="item.id">
+            <b-card>
+              <img :src="item.url" alt="" class="image" />
+              <div class="middle">
+                <b-button
+                  class="detail"
+                  data-toggle="modal"
+                  data-target="quickViewModal"
+                  @click="modaldetail()"
+                  ><i class="fa fa-eye" aria-hidden="true"></i
+                ></b-button>
+              </div>
+              <b-card-text>
+                <!-- <router-link
+                    :to="{ name: '{{item.name}}', params: { id: 1 } }"
+                    >{{ item.name }}</router-link
+                  > -->
+                <p>${{ item.price }}</p>
+              </b-card-text>
+
+              <b-button @click="addtoCart()" href="#" variant="primary"
+                >Add to cart</b-button
+              >
+            </b-card>
+          </div>
+        </div>
+        <paginate
+          :page-count="20"
+          :page-range="3"
+          :margin-pages="2"
+          :click-handler="clickCallback"
+          :prev-text="'Prev'"
+          :next-text="'Next'"
+          :container-class="'pagination'"
+          :page-class="'page-item'"
+        >
+        </paginate>
+      </div>
+    </section>
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      products: [
+        {
+          id: 1,
+          name: "iphone",
+          price: "3000"
+        },
+        {
+          id: 2,
+          name: "samsung",
+          price: "2000"
+        }
+      ]
+    };
+  }
+};
+</script>
 
 <style lang="sass" scoped>
 .container-fluid
